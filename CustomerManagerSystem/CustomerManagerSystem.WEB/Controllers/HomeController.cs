@@ -12,24 +12,25 @@ namespace CustomerManagerSystem.WEB.Controllers
     {
         private readonly CSMModelContext db = new CSMModelContext();
 
-        public ActionResult CustomersList(User model)
+        public ActionResult CustomersList()
         {
-            if (ModelState.IsValid)
+            if (Security != null)
             {
                 List<Customer> customerList;
-                if (model.Role.Equals(Enum.Enum.Role.Seller))
-                    customerList = db.Customers.Where(x => x.User.Email.ToUpper().Equals(model.Email.ToUpper())).ToList();
+                if (Security.Role.Equals(Enum.Enum.Role.Seller))
+                    customerList = db.Customers.Where(x => x.Seller.Email.ToUpper().Equals(Security.Email.ToUpper())).ToList();
                 else
                     customerList = db.Customers.ToList();
 
                 return View(customerList);
             }
-            return View();
+            else
+                return RedirectToAction("Login");
         }
 
         public ActionResult Login()
         {
-            return View();
+            return View(new User());
         }
 
         [HttpPost]
@@ -46,12 +47,12 @@ namespace CustomerManagerSystem.WEB.Controllers
                     if (user != null)
                     {
                         Session.Add("UserData", user);
-                        return RedirectToAction("CustomersList", user);
+                        return RedirectToAction("CustomersList");
                     }
                 }
                 else
                 {
-                    return RedirectToAction("CustomersList", Security);
+                    return RedirectToAction("CustomersList");
                 }
 
                 return View(model);

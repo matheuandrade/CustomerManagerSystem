@@ -34,8 +34,11 @@ namespace CustomerManagerSystem.WEB
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (Security == null)
-                filterContext.Result = new RedirectResult(Url.Action("Login","Home"));
+            //string route = "http://localhost" + Url.Action("Login", "Home");
+
+
+            //if (Security == null)
+            //    filterContext.Result = new RedirectResult(route);
         }
     }
 }

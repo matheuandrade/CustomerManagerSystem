@@ -1,7 +1,51 @@
-﻿
+﻿@model List<CustomerManagerSystem.WEB.Models.Customer>
+
 @{
-    ViewBag.Title = "CustersList";
+    var user = Session["UserData"] as CustomerManagerSystem.WEB.Models.User;
 }
 
-<h2>CustersList</h2>
+<table id="example" class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="text-align:center;">Classification</th>
+            <th style="text-align:center;">Name</th>
+            <th style="text-align:center;">Phone</th>
+            <th style="text-align:center;">Gender</th>
+            <th style="text-align:center;">City</th>
+            <th style="text-align:center;">Region</th>
+            <th style="text-align:center;">Last Purchase</th>
+            @if (user != null && user.Role.Equals(CustomerManagerSystem.WEB.Enum.Enum.Role.Administrator))
+            {
+                    <th style="text-align:center;">Seller</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model.ToList())
+                {
+                    <tr>
+                        <td style="text-align:center;">@item.Classification</td>
+                        <td style="text-align:center;">@item.Name</td>
+                        <td style="text-align:center;">@item.Phone</td>
+                        <td style="text-align:center;">@item.Gender</td>
+                        <td style="text-align:center;">@item.City.Name</td>
+                        <td style="text-align:center;">@item.City.Region.Name</td>
+                        <td style="text-align:center;">@item.LastPurchase</td>
+                        @if (user != null && user.Role.Equals(CustomerManagerSystem.WEB.Enum.Enum.Role.Administrator))
+                        {
+                            <td style="text-align:center;">@item.Seller.Name</td>                
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
 

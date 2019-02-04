@@ -18,6 +18,7 @@ namespace CustomerManagerSystem.WEB.DAL
         public CSMModelContext() : base("name=CSMModelContext")
         {
             Database.SetInitializer<CSMModelContext>(new DropCreateDatabaseIfModelChanges<CSMModelContext>());
+            //Database.SetInitializer<CSMModelContext>(new DropCreateDatabaseAlways<CSMModelContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
