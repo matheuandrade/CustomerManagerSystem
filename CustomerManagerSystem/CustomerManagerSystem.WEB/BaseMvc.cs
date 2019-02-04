@@ -9,15 +9,15 @@ namespace CustomerManagerSystem.WEB
 {
     public class BaseMvc : Controller
     {
-        private UserModel _user;
+        private User _user;
 
-        public UserModel Security
+        public User Security
         {
             get
             {
                 if (Session["UserData"] != null)
                 {
-                    _user = (UserModel)Session["UserData"];
+                    _user = (User)Session["UserData"];
                 }
 
                 return _user;
@@ -35,23 +35,7 @@ namespace CustomerManagerSystem.WEB
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (Security == null)
-            {
-                //UsuarioModel user = new UsuarioModel();
-                //var autenticacaoSso = new AutenticacaoSSO();
-
-                //if (autenticacaoSso.VerificarAutenticacao())
-                //{
-                //    //return Redirect(autenticacaoSso.GetUrlRedirect());
-                //    string codigo = AutenticacaoSSO.UsuarioCookieAtual();
-
-                //    user.Login = codigo; //AutenticacaoSSO.UsuarioCookieAtual();
-                //    Session.Add("UserData", user);
-                //}
-                //else
-                //{
-                //    filterContext.Result = new RedirectResult(autenticacaoSso.GetUrlRedirect());
-                //}
-            }
+                filterContext.Result = new RedirectResult(Url.Action("Login","Home"));
         }
     }
 }
