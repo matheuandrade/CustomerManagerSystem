@@ -4,7 +4,14 @@
     var user = Session["UserData"] as CustomerManagerSystem.WEB.Models.User;
 }
 
-<table id="example" class="table table-bordered">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<table id="example" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th style="text-align:center;">Classification</th>

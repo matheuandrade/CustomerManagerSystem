@@ -68,3 +68,4 @@ C:\Users\matheus.andrade\Desktop\ProjectGit\ManagerCustomerSystem\CustomerManage
 C:\Users\matheus.andrade\Desktop\ProjectGit\ManagerCustomerSystem\CustomerManagerSystem\CustomerManagerSystem\CustomerManagerSystem.WEB\obj\Debug\CustomerManagerSystem.WEB.csproj.GenerateResource.Cache
 C:\Users\matheus.andrade\Desktop\ProjectGit\ManagerCustomerSystem\CustomerManagerSystem\CustomerManagerSystem\CustomerManagerSystem.WEB\obj\Debug\CustomerManagerSystem.WEB.dll
 C:\Users\matheus.andrade\Desktop\ProjectGit\ManagerCustomerSystem\CustomerManagerSystem\CustomerManagerSystem\CustomerManagerSystem.WEB\obj\Debug\CustomerManagerSystem.WEB.pdb
+C:\Users\matheus.andrade\Desktop\ProjectGit\ManagerCustomerSystem\CustomerManagerSystem\CustomerManagerSystem\CustomerManagerSystem.WEB\obj\Debug\CustomerManagerSystem.WEB.csprojResolveAssemblyReference.cache
