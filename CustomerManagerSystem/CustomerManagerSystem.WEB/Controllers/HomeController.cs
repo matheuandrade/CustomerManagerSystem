@@ -28,6 +28,16 @@ namespace CustomerManagerSystem.WEB.Controllers
                 return RedirectToAction("Login");
         }
 
+        public ActionResult CustomersList(Customer model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            return View();
+        }
+
         public ActionResult Login()
         {
             return View(new User());
